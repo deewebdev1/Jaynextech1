@@ -3,50 +3,446 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site Unavailable</title>
+  <title>Jaynex Tech Free Training</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      background: #0d1117;
-      color: #c9d1d9;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #23003C;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 50px;
+      position:fixed;
+      width:100%;
+      top:0;
+      background:rgba(35,0,60,0.9);
+      z-index:1000;
+    }
+    header h1 {
+      font-size:1.5rem;
+      color:#E3A7FF;
+    }
+    header .cta {
+      padding:12px 25px;
+      border:none;
+      font-size:1rem;
+      font-weight:bold;
+      background: linear-gradient(90deg,#E3A7FF,#a35fff);
+      border-radius:50px;
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+      color:#23003C;
+      font-family: 'Rajdhani', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+    }
+    header .cta::before {
+      content:"";
+      position:absolute;
+      width:200%;
+      height:100%;
+      background:linear-gradient(270deg,#E3A7FF,#a35fff,#E3A7FF);
+      animation:move 3s linear infinite;
+      top:0; left:-100%;
+    }
+    header .cta span { position:relative; z-index:2; }
+    @keyframes move {
+      0% { left:-100%; }
+      100% { left:100%; }
+    }
+
+    /* Hero */
+    .hero {
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:0 20px;
+    }
+    .hero h2 {
+      font-size:2.3rem;
+      color:#E3A7FF;
+      margin-bottom:15px;
+      line-height:1.3;
+      animation: slideDown 1.5s ease-out forwards;
+    }
+    .hero p {
+      font-size:1.2rem;
+      margin-bottom:30px;
+      animation: fadeIn 2s ease-in forwards;
+    }
+    .hero a button {
+      padding:15px 40px;
+      font-size:1.2rem;
+      border:none;
+      background: linear-gradient(90deg,#E3A7FF,#a35fff);
+      border-radius:50px;
+      color:#23003C;
+      font-weight:bold;
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+      animation: pop 2s infinite ease-in-out;
+      font-family: 'Rajdhani', sans-serif;
+    }
+    .hero button::before {
+      content:"";
+      position:absolute;
+      width:200%;
+      height:100%;
+      background:linear-gradient(270deg,#E3A7FF,#a35fff,#E3A7FF);
+      animation:move 3s linear infinite;
+      top:0; left:-100%;
+    }
+    .hero button::after {
+      content:"";
+      position:absolute;
+      top:0;
+      left:-100%;
+      width:100%;
+      height:100%;
+      background:rgba(255,255,255,0.2);
+      filter: blur(8px);
+      animation:shine 3s infinite;
+    }
+    .hero button span { position:relative; z-index:2; }
+
+    /* Animations */
+    @keyframes slideDown {
+      0% { transform:translateY(-50px); opacity:0; }
+      100% { transform:translateY(0); opacity:1; }
+    }
+    @keyframes fadeIn {
+      0% { opacity:0; }
+      100% { opacity:1; }
+    }
+    @keyframes pop {
+      0%,100% { transform:scale(1); }
+      50% { transform:scale(1.07); }
+    }
+    @keyframes shine {
+      0% { left:-100%; }
+      100% { left:120%; }
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 35px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      color: white;
+      background: linear-gradient(90deg, #E3A7FF, #8000FF, #E3A7FF);
+      background-size: 200% 200%;
+      border-radius: 50px;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(227,167,255,0.7);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      animation: neonMove 4s linear infinite;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.2);
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
+    }
+
+    .cta-btn:hover::before {
+      left: 100%;
+    }
+
+    @keyframes neonMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .time-box {
+      background: #2E004D;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(227,167,255,0.4);
+      font-family: 'Orbitron', sans-serif;
       text-align: center;
+      min-width: 100px;
+      animation: popBox 1.5s ease infinite alternate;
     }
-    h1 {
-      font-size: 2rem;
-      color: #f85149;
-      margin-bottom: 10px;
+
+    .time-box span {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #E3A7FF;
+      display: block;
     }
-    p {
+
+    .time-box p {
+      margin: 0;
       font-size: 1rem;
-      color: #8b949e;
+      color: #ddd;
     }
-    .box {
-      background: #161b22;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    }
-    .footer {
-      margin-top: 40px;
-      font-size: 0.85rem;
-      color: #6e7681;
+
+    @keyframes popBox {
+      from { transform: translateY(0); }
+      to { transform: translateY(-6px); }
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>⚠️ Site Unavailable</h1>
-    <p>This project is no longer available.<br>
-       Hosting may have expired or been disabled.</p>
-  </div>
-  <div class="footer">
-    <p>GitHub Pages • 2025</p>
-  </div>
+  <header>
+    <h1>Jaynex Tech</h1>
+    <a href="https://chat.whatsapp.com/CtOtfiv2gwi2UtVQ053F2Q?mode=ems_copy_c" target="_blank" class="cta"><span>Join Free Training</span></a>
+  </header>
+
+  <section class="hero">
+    <h2>Interested in Web Development but don’t know where to start? OR HIGH COST?</h2>
+    <p>In just 5 days, transform your smartphone into a money-making machine for FREE</p>
+    <a href="https://chat.whatsapp.com/CtOtfiv2gwi2UtVQ053F2Q?mode=ems_copy_c" target="_blank">
+      <button><span>Join Free Training Now</span></button>
+    </a>
+  </section>
+  
+  <!-- Stats Section -->
+  <section style="background:#2e004d; padding:80px 20px; text-align:center;">
+    <div style="max-width:1000px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:40px;">
+      
+      <div>
+        <h3 style="font-size:2.5rem; color:#E3A7FF;">
+          <span class="counter" data-target="10000">0</span>+
+        </h3>
+        <p style="font-size:1.1rem;">Students Trained</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:2.5rem; color:#E3A7FF;">
+          <span class="counter" data-target="95">0</span>%
+        </h3>
+        <p style="font-size:1.1rem;">Practical Learning</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:2.5rem; color:#E3A7FF;">
+          <span class="counter" data-target="5">0</span> Days
+        </h3>
+        <p style="font-size:1.1rem;">Intensive Free Class</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section style="padding:100px 20px; text-align:center;">
+    <h2 style="font-size:2rem; margin-bottom:20px; color:#E3A7FF;">Why Join This Free Training?</h2>
+    <p style="max-width:800px; margin:auto; font-size:1.1rem; line-height:1.7;">
+      At <b>Jaynex Tech</b>, we don’t just teach – we transform.  
+      This is your chance to get hands-on experience in web development with expert guidance.  
+      Whether you’re a beginner or looking to sharpen your skills, our <b>7-Day WhatsApp Class</b> will open doors you never imagined.  
+      And yes – <b>it’s totally free</b>! Limited slots available, don’t miss it 🚀.
+    </p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section style="background:#23003C; padding:80px 20px; text-align:center; color:white;">
+    <h2 style="font-size:2rem; margin-bottom:40px; color:#E3A7FF;">What Our Students Are Saying</h2>
+    <div class="testimonial-slider" style="max-width:900px; margin:auto; overflow:hidden; position:relative;">
+      <div class="slides" style="display:flex; transition:transform 0.6s ease;">
+
+        <div style="min-width:100%; padding:20px;">
+          <p style="font-size:1.2rem; font-style:italic;">“I honestly never believed I could build a website in just 5 days..omohh. This training has changed my mindset completely. God bless Jaynex Tech!”</p>
+          <h4 style="margin-top:15px; color:#E3A7FF;">– Chinedu O.</h4>
+        </div>
+
+        <div style="min-width:100%; padding:20px;">
+          <p style="font-size:1.2rem; font-style:italic;">“From the very first day, I knew this class was special. The teaching, the community, and the guidance were top notch. I even got prayers from my parents because of this skill for realll! 🙏.”</p>
+          <h4 style="margin-top:15px; color:#E3A7FF;">– Aisha B.</h4>
+        </div>
+
+        <div style="min-width:100%; padding:20px;">
+          <p style="font-size:1.2rem; font-style:italic;">“This free training feels like something I should have paid thousands for. I can’t thank Jaynex Tech enough. May your knowledge never run dry!”</p>
+          <h4 style="margin-top:15px; color:#E3A7FF;">– Tolu A.</h4>
+        </div>
+
+        <div style="min-width:100%; padding:20px;">
+          <p style="font-size:1.2rem; font-style:italic;">“When I saw the advert, I thought it was just hype. But this training blew my mind. Real practicals, real results. Jaynex Tech is doing wonders!”</p>
+          <h4 style="margin-top:15px; color:#E3A7FF;">– Fatima K.</h4>
+        </div>
+
+        <div style="min-width:100%; padding:20px;">
+          <p style="font-size:1.2rem; font-style:italic;">“I was struggling with tech before, but this training gave me confidence. My friends are shocked at how far I’ve come in just 5 days.”</p>
+          <h4 style="margin-top:15px; color:#E3A7FF;">– Ibrahim L.</h4>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- CEO Section -->
+  <section style="padding:100px 20px; text-align:center; background:#2e004d; color:white;">
+    <div style="max-width:1000px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px; align-items:center;">
+      
+      <!-- CEO Image -->
+      <div>
+        <img src="Ceo.png" alt="Olatunde Jeremiah - Deewebdev" style="width:100%; max-width: 300px; border-radius:80%; border:4px solid #E3A7FF; box-shadow:0 0 25px rgba(227,167,255,0.6);">
+      </div>
+      
+      <!-- CEO Bio -->
+      <div style="text-align:left;">
+        <h2 style="font-size:2rem; color:#E3A7FF;">Meet the Visionary</h2>
+        <p style="margin-top:15px; font-size:1.1rem; line-height:1.7;">
+          At the heart of <b>Jaynex Tech</b> is <b>Olatunde Jeremiah</b> (a.k.a <b>Deewebdev</b>) — 
+          a passionate techpreneur, web developer, and brand designer committed to raising Africa’s 
+          next generation of digital creators.
+        </p>
+        <p style="margin-top:15px; font-size:1.1rem; line-height:1.7;">
+          His mission is simple: <b>Equip young Africans with the skills to build, earn, and thrive in the digital economy</b>.  
+          Already, <b>10,000+ learners</b> have been impacted worldwide under his leadership.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificate Section -->
+  <section style="padding:100px 20px; text-align:center;">
+    <h2 style="font-size:2rem; margin-bottom:20px; color:#E3A7FF;">Earn Your Certificate of Completion</h2>
+    <p style="max-width:800px; margin:auto; font-size:1.1rem; line-height:1.7;">
+      Every participant who completes the <b>5-Day Free Training</b> will receive a 
+      <b>Certificate of Completion</b> — proof of your commitment and skill in web development.  
+      This certificate will boost your portfolio and give you an edge in the digital space.
+    </p>
+    <div style="margin-top:40px;">
+      <img src="certificate.png" alt="Certificate of Completion" style="width:100%; max-width:500px; border-radius:12px; box-shadow:0 0 35px rgba(227,167,255,0.5);">
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section style="padding:80px 20px; background:#23003C; text-align:center;">
+    <h2 style="font-size:2rem; color:#E3A7FF; margin-bottom:40px;">Ready to Transform Your Future?</h2>
+    <a href="https://chat.whatsapp.com/CtOtfiv2gwi2UtVQ053F2Q?mode=ems_copy_c" target="_blank" class="cta-btn">Join Free Class Now 🚀</a>
+  </section>
+  
+  <!-- Countdown Section -->
+  <section style="padding:100px 20px; text-align:center; background:#150025; color:white;">
+    <h2 style="font-size:2rem; margin-bottom:20px; color:#E3A7FF;">
+      Class Starts SOON ⏳
+    </h2>
+    <p style="font-size:1.1rem; margin-bottom:40px;">
+      Don’t miss this opportunity to transform your <b>smartphone</b> into a <b>money-making machine</b>.  
+      Secure your spot before time runs out!
+    </p>
+
+    <!-- Timer Display -->
+    <div id="countdown" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <div class="time-box"><span id="days">00</span><p>Days</p></div>
+      <div class="time-box"><span id="hours">00</span><p>Hours</p></div>
+      <div class="time-box"><span id="minutes">00</span><p>Minutes</p></div>
+      <div class="time-box"><span id="seconds">00</span><p>Seconds</p></div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer style="background:#1a002c; padding:40px 20px; text-align:center; color:#bbb;">
+    <p>&copy; 2025 Jaynex Tech. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JS for Counters & Testimonial Slider -->
+  <script>
+    // Counter Animation (only when visible)
+    const counters = document.querySelectorAll(".counter");
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5 // trigger when 50% visible
+    };
+
+    const startCounter = (entry) => {
+      const counter = entry.target;
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const increment =
+      
+    Math.ceil(target / 200); // speed of count
+
+      const updateCount = () => {
+        count += increment;
+        if (count < target) {
+          counter.innerText = count;
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startCounter(entry);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    counters.forEach(counter => observer.observe(counter));
+
+    // Testimonial slider
+    let slideIndex = 0;
+    const slides = document.querySelector(".slides");
+    const totalSlides = slides.children.length;
+
+    function showSlides() {
+      slideIndex++;
+      if (slideIndex >= totalSlides) { slideIndex = 0; }
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+      setTimeout(showSlides, 5000); // change every 5s
+    }
+    showSlides();
+
+    // Countdown Timer
+    const countDownDate = new Date("Sep 20, 2025 00:00:00").getTime();
+
+    const timerFunction = setInterval(() => {
+      let now = new Date().getTime();
+      let distance = countDownDate - now;
+
+      if (distance < 0) {
+        clearInterval(timerFunction);
+        document.getElementById("countdown").innerHTML = "<h3 style='color:#E3A7FF;'>Class has started! 🎉</h3>";
+        return;
+      }
+
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }, 1000);
+  </script>
 </body>
 </html>
